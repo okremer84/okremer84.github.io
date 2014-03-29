@@ -1,18 +1,25 @@
+<html>
+<head>
 <script type="application/javascript">
-if (!window.DeviceOrientationEvent) {
- alert("DeviceOrientation is not supported ");
-}
+window.onload = function(){
+	if (!window.DeviceOrientationEvent) {
+	 alert("DeviceOrientation is not supported ");
+	}
 
-if (window.DeviceOrientationEvent) {
-  // Listen for the event and handle DeviceOrientationEvent object
-  window.addEventListener('deviceorientation', function (e) {
-	ax = e.accelerationIncludingGravity.x;
-	ay = -e.accelerationIncludingGravity.y;
-	document.getElementById("xpos").innerHTML = ax;
-	document.getElementById("ypos").innerHTML = ay;
-}, false);
+	if (window.DeviceOrientationEvent) {
+	  // Listen for the event and handle DeviceOrientationEvent object
+	  window.addEventListener('deviceorientation', function (e) {
+		ax = e.accelerationIncludingGravity.x;
+		ay = -e.accelerationIncludingGravity.y;
+		document.getElementById("xpos").innerHTML = ax;
+		document.getElementById("ypos").innerHTML = ay;
+	}, false);
+	}
 }
-
 </script>
-X=<span id="xpos"></span>
-Y=<span id="ypos"></span>
+</head>
+<body>
+<div>X=<span id="xpos"></span></div>
+<div>Y=<span id="ypos"></span></div>
+</body>
+</html>
