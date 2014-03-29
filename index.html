@@ -2,15 +2,19 @@
 <head>
 <script type="text/javascript">
 
-if (window.DeviceMotionEvent) {
+if (window.DeviceOrientationEvent) {
   // Listen for the event and handle DeviceOrientationEvent object
-  window.addEventListener('devicemotion', handleorientation, false);
+  window.addEventListener('deviceorientation', handleorientation, false);
+}
+else
+{
+	alert("Not supported!");
 }
 
 function handleorientation(deviceData)
 {
-	ax = deviceData.rotationRate.alpha;
-	ay = deviceData.rotationRate.beta;
+	ax = deviceData.gamma;
+	ay = deviceData.beta;
 	document.getElementById("xpos").innerHTML = ax;
 	document.getElementById("ypos").innerHTML = ay;
 }
