@@ -9,8 +9,8 @@ window.onload = function(){
 	if (window.DeviceOrientationEvent) {
 	  // Listen for the event and handle DeviceOrientationEvent object
 	  window.addEventListener('deviceorientation', function (e) {
-		ax = e.accelerationIncludingGravity.x;
-		ay = -e.accelerationIncludingGravity.y;
+		ax = e.rotation.alpha;
+		ay = e.rotation.beta;
 		document.getElementById("xpos").innerHTML = ax;
 		document.getElementById("ypos").innerHTML = ay;
 	}, false);
