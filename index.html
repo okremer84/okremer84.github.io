@@ -1,1 +1,9 @@
-Hello World
+<script type="application/javascript">
+window.addEventListener('devicemotion', function (e) {
+	ax = e.accelerationIncludingGravity.x * sensitivity;
+	ay = -e.accelerationIncludingGravity.y * sensitivity;
+}, false);
+
+</script>
+X=<span id="xpos"></span>
+Y=<span id="ypos"></span>
