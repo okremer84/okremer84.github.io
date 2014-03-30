@@ -8,20 +8,48 @@ if (window.DeviceOrientationEvent) {
 }
 else
 {
-	alert("Not supported!");
+	alert("Device Orientation Not supported!");
 }
+if (window.DeviceMotionEvent) {
+  // Listen for the event and handle DeviceOrientationEvent object
+  window.addEventListener('devicemotion', handlemotion, false);
+}
+else
+{
+	alert("Device Motion Not supported!");
+}
+
+
 
 function handleorientation(deviceData)
 {
-	ax = deviceData.gamma;
-	ay = deviceData.beta;
-	document.getElementById("xpos").innerHTML = ax;
-	document.getElementById("ypos").innerHTML = ay;
+	gamma = deviceData.gamma;
+	beta = deviceData.beta;
+	document.getElementById("gammapos").innerHTML = ax;
+	document.getElementById("betapos").innerHTML = beta;
+}
+
+function handlemotion(deviceData)
+{
+	xacc = deviceData.acceleration.x;
+	yacc = deviceData.acceleration.y;
+	zacc = deviceData.acceleration.z;
+	document.getElementById("xacc").innerHTML = xacc;
+	document.getElementById("yacc").innerHTML = yacc;
+	document.getElementById("zacc").innerHTML = zacc;
 }
 </script>
 </head>
 <body>
-<div>X=<span id="xpos"></span></div>
-<div>Y=<span id="ypos"></span></div>
+<div>
+<H1>Orientation Details</H1>
+<div>Gamma=<span id="gammapos"></span></div>
+<div>Beta=<span id="betapos"></span></div>
+</div>
+<H1>Motion Details</H1>
+<div>X Acceleration=<span id="xacc"></span></div>
+<div>Y Acceleration=<span id="yacc"></span></div>
+<div>Z Acceleration=<span id="zacc"></span></div>
+</div>
 </body>
 </html>
