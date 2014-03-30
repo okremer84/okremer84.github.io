@@ -47,28 +47,28 @@ function handlemotion(deviceData)
 	}
 	if (xacc < minxacc)
 	{
-		maxxacc = xacc;		
-		document.getElementById("minxacc").innerHTML = maxxacc;
+		minxacc = xacc;		
+		document.getElementById("minxacc").innerHTML = minxacc;
 	}
 	if (yacc > maxyacc)
 	{
-		maxxacc = xacc;		
-		document.getElementById("maxyacc").innerHTML = maxxacc;
+		maxyacc = xacc;		
+		document.getElementById("maxyacc").innerHTML = maxyacc;
 	}
 	if (yacc < minyacc)
 	{
-		maxxacc = xacc;		
-		document.getElementById("minyacc").innerHTML = maxxacc;
+		minyacc = xacc;		
+		document.getElementById("minyacc").innerHTML = minyacc;
 	}
 	if (zacc > maxzacc)
 	{
-		maxxacc = xacc;		
-		document.getElementById("maxzacc").innerHTML = maxxacc;
+		maxzacc = xacc;		
+		document.getElementById("maxzacc").innerHTML = maxzacc;
 	}
 	if (zacc < minzacc)
 	{
-		maxxacc = xacc;		
-		document.getElementById("minzacc").innerHTML = maxxacc;
+		minzacc = xacc;		
+		document.getElementById("minzacc").innerHTML = minzacc;
 	}
 	document.getElementById("xacc").innerHTML = xacc;
 	document.getElementById("yacc").innerHTML = yacc;
