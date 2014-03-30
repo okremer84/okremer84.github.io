@@ -52,22 +52,22 @@ function handlemotion(deviceData)
 	}
 	if (yacc > maxyacc)
 	{
-		maxyacc = xacc;		
+		maxyacc = yacc;		
 		document.getElementById("maxyacc").innerHTML = maxyacc;
 	}
 	if (yacc < minyacc)
 	{
-		minyacc = xacc;		
+		minyacc = yacc;		
 		document.getElementById("minyacc").innerHTML = minyacc;
 	}
 	if (zacc > maxzacc)
 	{
-		maxzacc = xacc;		
+		maxzacc = zacc;		
 		document.getElementById("maxzacc").innerHTML = maxzacc;
 	}
 	if (zacc < minzacc)
 	{
-		minzacc = xacc;		
+		minzacc = zacc;		
 		document.getElementById("minzacc").innerHTML = minzacc;
 	}
 	document.getElementById("xacc").innerHTML = xacc;
