@@ -1,6 +1,12 @@
 <html>
 <head>
 <script type="text/javascript">
+var maxxacc = 0;
+var minxacc = 0;
+var maxyacc = 0;
+var minyacc = 0;
+var maxzacc = 0;
+var minzacc = 0;
 
 if (window.DeviceOrientationEvent) {
   // Listen for the event and handle DeviceOrientationEvent object
@@ -25,7 +31,7 @@ function handleorientation(deviceData)
 {
 	gamma = deviceData.gamma;
 	beta = deviceData.beta;
-	document.getElementById("gammapos").innerHTML = ax;
+	document.getElementById("gammapos").innerHTML = gamma;
 	document.getElementById("betapos").innerHTML = beta;
 }
 
@@ -34,6 +40,36 @@ function handlemotion(deviceData)
 	xacc = deviceData.acceleration.x;
 	yacc = deviceData.acceleration.y;
 	zacc = deviceData.acceleration.z;
+	if (xacc > maxxacc)
+	{
+		maxxacc = xacc;		
+		document.getElementById("maxxacc").innerHTML = maxxacc;
+	}
+	if (xacc < minxacc)
+	{
+		maxxacc = xacc;		
+		document.getElementById("minxacc").innerHTML = maxxacc;
+	}
+	if (yacc > maxyacc)
+	{
+		maxxacc = xacc;		
+		document.getElementById("maxyacc").innerHTML = maxxacc;
+	}
+	if (yacc < minyacc)
+	{
+		maxxacc = xacc;		
+		document.getElementById("minyacc").innerHTML = maxxacc;
+	}
+	if (zacc > maxzacc)
+	{
+		maxxacc = xacc;		
+		document.getElementById("maxzacc").innerHTML = maxxacc;
+	}
+	if (zacc < minzacc)
+	{
+		maxxacc = xacc;		
+		document.getElementById("minzacc").innerHTML = maxxacc;
+	}
 	document.getElementById("xacc").innerHTML = xacc;
 	document.getElementById("yacc").innerHTML = yacc;
 	document.getElementById("zacc").innerHTML = zacc;
@@ -50,6 +86,13 @@ function handlemotion(deviceData)
 <div>X Acceleration=<span id="xacc"></span></div>
 <div>Y Acceleration=<span id="yacc"></span></div>
 <div>Z Acceleration=<span id="zacc"></span></div>
+
+<div>Max X Acceleration=<span id="maxxacc"></span></div>
+<div>Min X Acceleration=<span id="minxacc"></span></div>
+<div>Max Y Acceleration=<span id="maxyacc"></span></div>
+<div>Min Y Acceleration=<span id="minyacc"></span></div>
+<div>Max Z Acceleration=<span id="maxzacc"></span></div>
+<div>Min Z Acceleration=<span id="minzacc"></span></div>
 </div>
 </body>
 </html>
