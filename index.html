@@ -20,8 +20,6 @@ asd
 <script src="recorder.js"></script>
 <script type="application/javascript">
     var recorder;
-    navigator.mediaDevices.enumerateDevices().then(devices =>
-        devices.forEach(device => alert(device.label)))
     $("#start_record").on('click', function() {var audio_constraints = { audio: true, video:false };
         navigator.mediaDevices.getUserMedia(audio_constraints,
             function(stream) {
