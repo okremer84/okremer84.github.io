@@ -23,7 +23,8 @@ asd
     navigator.mediaDevices.enumerateDevices().then(devices =>
         devices.forEach(device => alert(device.label)))
     $("#start_record").on('click', function() {var audio_constraints = { audio: true, video:false };
-        navigator.mediaDevices.getUserMedia(audio_constraints).then(function(stream) {
+        navigator.mediaDevices.getUserMedia(audio_constraints,
+            function(stream) {
             current_stream = stream;
             var browser_audio_context = window.AudioContext || window.webkitAudioContext
             audio_context = new browser_audio_context;
@@ -31,7 +32,8 @@ asd
             recorder = new Recorder(input);
             recorder.record();
             alert("Recording!!");
-        }).catch(function(err) {
+        },
+            function(err) {
             alert("Error!!!");
         });
     });
