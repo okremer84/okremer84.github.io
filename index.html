@@ -17,12 +17,25 @@
 <button id="stop_record">STOP!</button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="recorder.js"></script>
 <script type="application/javascript">
-    $("#start_record").on('click', function() {
-        alert("Recording!");
+    var recorder;
+    $("#start_record").on('click', function() {var audio_constraints = { audio: true, video:false };
+        navigator.mediaDevices.getUserMedia(audio_constraints).then(function(stream) {
+            current_stream = stream;
+            var browser_audio_context = window.AudioContext || window.webkitAudioContext
+            audio_context = new browser_audio_context;
+            var input = audio_context.createMediaStreamSource(stream);
+            recorder = new Recorder(input);
+            recorder.record();
+            alert("Recording!!");
+        }).catch(function(err) {
+            alert("Error!!!");
+        });
     });
     $("#stop_record").on('click', function() {
-        alert("Stopping!");
+        recorder.stop();
+        recorder.clear();
     });
 </script>
 
